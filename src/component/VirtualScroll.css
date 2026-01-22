@@ -1,0 +1,437 @@
+/* ===== VIRTUAL SCROLL CONTAINER ===== */
+.virtual-scroll-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0;
+  margin: 0;
+}
+
+/* ===== HEADER SECTION ===== */
+.virtual-scroll-header {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  padding: 3rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #667eea;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.virtual-scroll-title {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a202c;
+  letter-spacing: -1px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.virtual-scroll-title::before {
+  content: "📊";
+  font-size: 2.8rem;
+}
+
+.virtual-scroll-subtitle {
+  margin: 0.75rem 0 0 0;
+  font-size: 1rem;
+  color: #718096;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* ===== MAIN WRAPPER ===== */
+.virtual-scroll-wrapper {
+  padding: 0 2rem 3rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===== STATS SECTION ===== */
+.virtual-scroll-stats {
+  background: white;
+  padding: 1.75rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  border-left: 5px solid #667eea;
+  border-top: 1px solid #e2e8f0;
+}
+
+.virtual-scroll-stats-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.virtual-scroll-stats-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.virtual-scroll-stats-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #667eea;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== TABLE SECTION ===== */
+.virtual-scroll-table-section {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.virtual-scroll-table-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 2px solid #f1f5f9;
+  background: linear-gradient(to right, #f8fafc, #f1f5f9);
+}
+
+.virtual-scroll-table-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.virtual-scroll-table-desc {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.9rem;
+  color: #718096;
+}
+
+/* ===== SCROLL CONTAINER ===== */
+/* .virtual-scroll-content {
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+} */
+
+/* Custom Scrollbar */
+.virtual-scroll-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.virtual-scroll-content::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-left: 1px solid #e2e8f0;
+}
+
+.virtual-scroll-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #cbd5e1, #94a3b8);
+  border-radius: 5px;
+  border: 2px solid #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.virtual-scroll-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #94a3b8, #64748b);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== TABLE STYLES ===== */
+.virtual-scroll-table {
+  /* width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  background: white; */
+}
+
+/* TABLE HEAD */
+table.virtual-scroll-table_new thead {
+    background: #fff;
+    /* border-bottom: 1px solid #333; */
+    box-shadow: 2px 3px 4px rgba(0,0,0,0.2);
+}
+table.virtual-scroll-table_new thead th {
+    padding: 16px 15px;
+    text-align: left;
+    background: #f1f1f1;
+}
+.virtual-scroll-table_new tbody tr {
+    border-bottom: 1px solid #e4e4e4;
+}
+.virtual-scroll-table_new tbody tr td {
+    padding: 16px 15px;
+}
+/* ===== STATUS BADGE ===== */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+}
+
+.status-badge.active {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #047857;
+  border: 1px solid #6ee7b7;
+  box-shadow: 0 2px 8px rgba(4, 120, 87, 0.15);
+}
+
+.status-badge.active::before {
+  content: "●";
+  color: #10b981;
+  font-size: 0.7rem;
+  animation: pulse-green 2s infinite;
+}
+
+.status-badge.inactive {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+  box-shadow: 0 2px 8px rgba(153, 27, 27, 0.15);
+}
+
+.status-badge.inactive::before {
+  content: "●";
+  color: #ef4444;
+  font-size: 0.7rem;
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ===== EMPTY STATE ===== */
+.virtual-scroll-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #94a3b8;
+}
+
+.virtual-scroll-empty p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ===== LOADING STATE ===== */
+.virtual-scroll-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  color: #718096;
+}
+
+.virtual-scroll-loading::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== FOOTER ===== */
+.virtual-scroll-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.virtual-scroll-footer-text {
+  font-size: 0.85rem;
+  color: #718096;
+  margin: 0;
+}
+
+.virtual-scroll-footer-meta {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.virtual-scroll-footer-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.virtual-scroll-footer-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.virtual-scroll-footer-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+  .virtual-scroll-header {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .virtual-scroll-title {
+    font-size: 2rem;
+  }
+
+  .virtual-scroll-wrapper {
+    padding: 0 1.5rem 2rem 1.5rem;
+  }
+
+  .virtual-scroll-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .virtual-scroll-header {
+    padding: 2rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .virtual-scroll-title {
+    font-size: 1.75rem;
+  }
+
+  .virtual-scroll-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .virtual-scroll-wrapper {
+    padding: 0 1.25rem 1.5rem 1.25rem;
+  }
+
+  .virtual-scroll-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .virtual-scroll-table th,
+  .virtual-scroll-table td {
+    padding: 0 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .virtual-scroll-table th:first-child,
+  .virtual-scroll-table td:first-child {
+    padding-left: 1rem;
+  }
+
+  .virtual-scroll-table th:last-child,
+  .virtual-scroll-table td:last-child {
+    padding-right: 1rem;
+  }
+
+  .virtual-scroll-content {
+    height: 400px;
+  }
+
+  .virtual-scroll-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem;
+  }
+
+  .virtual-scroll-footer-meta {
+    width: 100%;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .virtual-scroll-header {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .virtual-scroll-title {
+    font-size: 1.4rem;
+  }
+
+  .virtual-scroll-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .virtual-scroll-wrapper {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .virtual-scroll-stats {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .virtual-scroll-stats-value {
+    font-size: 1.4rem;
+  }
+
+  .virtual-scroll-table th,
+  .virtual-scroll-table td {
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .virtual-scroll-table th:first-child,
+  .virtual-scroll-table td:first-child {
+    padding-left: 0.75rem;
+  }
+
+  .virtual-scroll-table th:last-child,
+  .virtual-scroll-table td:last-child {
+    padding-right: 0.75rem;
+  }
+
+  .virtual-scroll-content {
+    height: 300px;
+  }
+
+  .status-badge {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.7rem;
+  }
+
+  .virtual-scroll-footer-meta {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
